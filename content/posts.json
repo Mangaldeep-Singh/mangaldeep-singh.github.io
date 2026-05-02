@@ -1,1 +1,20 @@
-["data science basics", "python-basics-for-data-science - Copy", "getting-started-with-ml-demos", "python-basics-for-data-science"]
+{
+  "posts": [
+    {
+      "slug": "data science basics",
+      "file": "content/posts/data science basics.md"
+    },
+    {
+      "slug": "python-basics-for-data-science - Copy",
+      "file": "content/posts/python-basics-for-data-science - Copy.md"
+    },
+    {
+      "slug": "getting-started-with-ml-demos",
+      "file": "content/posts/getting-started-with-ml-demos.md"
+    },
+    {
+      "slug": "python-basics-for-data-science",
+      "file": "content/posts/python-basics-for-data-science.md"
+    }
+  ]
+}
