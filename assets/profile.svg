@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Profile placeholder</title>
+  <desc id="desc">A simple geometric profile placeholder.</desc>
+  <rect width="240" height="240" rx="24" fill="#eef6f3"/>
+  <circle cx="120" cy="92" r="46" fill="#0f766e"/>
+  <path d="M48 210c12-48 38-72 72-72s60 24 72 72" fill="#17202a"/>
+  <circle cx="96" cy="86" r="7" fill="#fff"/>
+  <circle cx="144" cy="86" r="7" fill="#fff"/>
+</svg>

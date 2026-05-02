@@ -1,0 +1,20 @@
+{
+  "hosting": [
+    {
+      "slug": "hugging-face-spaces",
+      "file": "content/hosting/hugging-face-spaces.md"
+    },
+    {
+      "slug": "streamlit-community-cloud",
+      "file": "content/hosting/streamlit-community-cloud.md"
+    },
+    {
+      "slug": "gradio-on-spaces",
+      "file": "content/hosting/gradio-on-spaces.md"
+    },
+    {
+      "slug": "github-pages",
+      "file": "content/hosting/github-pages.md"
+    }
+  ]
+}

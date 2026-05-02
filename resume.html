@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume | Your Name</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="resume">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <span class="brand-mark">YN</span>
+        <span>Your Name</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="projects.html" data-nav="projects">Projects</a>
+        <a href="resume.html" data-nav="resume">Resume</a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+        <a href="hosting.html" data-nav="hosting">Host ML Demos</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Resume</p>
+        <h1>Resume</h1>
+        <p>Edit this content in <code>content/resume.md</code>.</p>
+      </section>
+      <section class="section split">
+        <div class="section-heading sticky-heading">
+          <h2>Profile</h2>
+          <p>Add a PDF at <code>assets/resume.pdf</code> later if you want a downloadable copy.</p>
+          <a class="button" href="mailto:you@example.com">Contact me</a>
+        </div>
+        <div id="resume-content" class="resume-content"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>&copy; <span id="year"></span> Your Name</span>
+      <span>Built for GitHub Pages</span>
+    </footer>
+
+    <script src="assets/markdown.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Post | Your Name</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="post">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <span class="brand-mark">YN</span>
+        <span>Your Name</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="projects.html" data-nav="projects">Projects</a>
+        <a href="resume.html" data-nav="resume">Resume</a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+        <a href="hosting.html" data-nav="hosting">Host ML Demos</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section article-shell">
+        <a class="back-link" href="blog.html">Back to all posts</a>
+        <article id="post-viewer" class="post-viewer" aria-live="polite"></article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>&copy; <span id="year"></span> Your Name</span>
+      <span>Built for GitHub Pages</span>
+    </footer>
+
+    <script src="assets/markdown.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
