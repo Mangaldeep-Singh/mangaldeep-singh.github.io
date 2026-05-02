@@ -14,27 +14,38 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate JSON files safely with Python
+      - name: Generate formatted JSON files
         run: |
           python3 -c '
           import os, json
 
-          def generate_json(folder_path, output_file):
-              # Check if the folder actually exists
+          def generate_json(folder_path, output_file, top_level_key):
               if os.path.exists(folder_path):
-                  # Find all .md files and strip the ".md" extension from the name
-                  files = [f[:-3] for f in os.listdir(folder_path) if f.endswith(".md")]
-                  with open(output_file, "w") as f:
-                      json.dump(files, f)
-                  print(f"Found {len(files)} files in {folder_path}")
+                  items = []
+                  for f in os.listdir(folder_path):
+                      if f.endswith(".md"):
+                          slug = f[:-3] # Remove the .md extension
+                          items.append({
+                              "slug": slug,
+                              "file": f"{folder_path}/{f}"
+                          })
+                  
+                  # Wrap the array in the top-level key (e.g., {"posts": [...]})
+                  data = {top_level_key: items}
+                  
+                  with open(output_file, "w") as out_file:
+                      # Added indent=2 to make it pretty and readable like your example
+                      json.dump(data, out_file, indent=2) 
+                      
+                  print(f"Found {len(items)} files in {folder_path}")
               else:
                   print(f"Warning: Folder {folder_path} does not exist. Writing empty array.")
-                  with open(output_file, "w") as f:
-                      json.dump([], f)
+                  with open(output_file, "w") as out_file:
+                      json.dump({top_level_key: []}, out_file, indent=2)
 
-          # Run for both directories (Check your exact folder names!)
-          generate_json("content/projects", "content/projects.json")
-          generate_json("content/posts", "content/posts.json")
+          # Run for both directories, specifying the exact folder, output file, and key name
+          generate_json("content/projects", "content/projects.json", "projects")
+          generate_json("content/posts", "content/posts.json", "posts")
           '
 
       - name: Commit and Push changes
@@ -42,5 +53,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add content/projects.json content/posts.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update JSON registries"
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update structured JSON registries"
           git push
