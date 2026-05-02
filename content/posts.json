@@ -9,6 +9,10 @@
       "file": "content/posts/python-basics-for-data-science - Copy.md"
     },
     {
+      "slug": "data science",
+      "file": "content/posts/data science.md"
+    },
+    {
       "slug": "getting-started-with-ml-demos",
       "file": "content/posts/getting-started-with-ml-demos.md"
     },
