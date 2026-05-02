@@ -5,6 +5,10 @@
       "file": "content/projects/nlp-sentiment-explorer.md"
     },
     {
+      "slug": "mini project",
+      "file": "content/projects/mini project.md"
+    },
+    {
       "slug": "customer-churn-predictor",
       "file": "content/projects/customer-churn-predictor.md"
     },
