@@ -1,12 +1,1 @@
-{
-  "posts": [
-    {
-      "slug": "getting-started-with-ml-demos",
-      "file": "content/posts/getting-started-with-ml-demos.md"
-    },
-    {
-      "slug": "python-basics-for-data-science",
-      "file": "content/posts/python-basics-for-data-science.md"
-    }
-  ]
-}
+[]

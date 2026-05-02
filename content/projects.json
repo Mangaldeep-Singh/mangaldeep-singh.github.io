@@ -1,16 +1,1 @@
-{
-  "projects": [
-    {
-      "slug": "customer-churn-predictor",
-      "file": "./content/projects/customer-churn-predictor.md"
-    },
-    {
-      "slug": "image-classifier-demo",
-      "file": "./content/projects/image-classifier-demo.md"
-    },
-    {
-      "slug": "nlp-sentiment-explorer",
-      "file": "./content/projects/nlp-sentiment-explorer.md"
-    }
-  ]
-}
+[]
