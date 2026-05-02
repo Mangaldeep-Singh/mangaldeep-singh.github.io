@@ -2,9 +2,6 @@ name: Auto-Update Markdown Registries
 
 on:
   push:
-    paths:
-      - 'content/projects/*.md'
-      - 'content/posts/*.md'
     branches:
       - main
 
@@ -17,19 +14,33 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate JSON files
+      - name: Generate JSON files safely with Python
         run: |
-          # Generate projects.json (creates a JSON array of filenames without the .md extension)
-          jq -n -c '[inputs | sub(".md$"; "")]' < <(ls -1 content/projects/*.md 2>/dev/null | xargs -n 1 basename) > content/projects.json || echo "[]" > content/projects.json
-          
-          # Generate posts.json
-          jq -n -c '[inputs | sub(".md$"; "")]' < <(ls -1 content/posts/*.md 2>/dev/null | xargs -n 1 basename) > content/posts.json || echo "[]" > content/posts.json
+          python3 -c '
+          import os, json
+
+          def generate_json(folder_path, output_file):
+              # Check if the folder actually exists
+              if os.path.exists(folder_path):
+                  # Find all .md files and strip the ".md" extension from the name
+                  files = [f[:-3] for f in os.listdir(folder_path) if f.endswith(".md")]
+                  with open(output_file, "w") as f:
+                      json.dump(files, f)
+                  print(f"Found {len(files)} files in {folder_path}")
+              else:
+                  print(f"Warning: Folder {folder_path} does not exist. Writing empty array.")
+                  with open(output_file, "w") as f:
+                      json.dump([], f)
+
+          # Run for both directories (Check your exact folder names!)
+          generate_json("content/projects", "content/projects.json")
+          generate_json("content/posts", "content/posts.json")
+          '
 
       - name: Commit and Push changes
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add content/projects.json content/posts.json
-          # Only commit if the JSON files actually changed
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update JSON registries"
           git push
