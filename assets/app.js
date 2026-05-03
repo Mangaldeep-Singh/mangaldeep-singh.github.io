@@ -1,10 +1,10 @@
 const page = document.body.dataset.page;
 const state = {
   owner: {
-    name: "Your Name",
-    initials: "YN",
+    name: "Mangaldeep Singh",
+    initials: "MS",
     role: "Machine Learning Engineer",
-    email: "you@example.com"
+    email: "mangaldeep95.ms@gmail.com"
   },
   posts: [],
   type: "all",
@@ -60,7 +60,7 @@ async function loadProfile() {
 }
 
 function applyOwner() {
-  document.title = document.title.replace("Your Name", state.owner.name);
+  document.title = document.title.replace("Mangaldeep Singh", state.owner.name);
   setText(".brand span:last-child", state.owner.name);
   setText(".brand-mark", state.owner.initials);
   setText("#year", new Date().getFullYear());
@@ -126,10 +126,10 @@ async function renderHomeSections() {
         <a href="blog.html">More posts</a>
       </div>
       ${renderHomeList(
-        recentPosts,
-        (post) => `<li><span>${post.date || ""}</span><a href="post.html?post=${encodeURIComponent(post.slug)}">${post.title}</a></li>`,
-        "No posts yet."
-      )}
+    recentPosts,
+    (post) => `<li><span>${post.date || ""}</span><a href="post.html?post=${encodeURIComponent(post.slug)}">${post.title}</a></li>`,
+    "No posts yet."
+  )}
     </section>
     <section class="home-block">
       <div class="section-row">
@@ -137,10 +137,10 @@ async function renderHomeSections() {
         <a href="projects.html">More projects</a>
       </div>
       ${renderHomeList(
-        featuredProjects,
-        (project) => `<li><span>${(project.tags || []).slice(0, 1).join("")}</span><a href="${project.demo || project.code || "projects.html"}">${project.title}</a></li>`,
-        "No projects yet."
-      )}
+    featuredProjects,
+    (project) => `<li><span>${(project.tags || []).slice(0, 1).join("")}</span><a href="${project.demo || project.code || "projects.html"}">${project.title}</a></li>`,
+    "No projects yet."
+  )}
     </section>
     <section class="home-block skills-block">
       <h2>Skills</h2>
@@ -162,8 +162,8 @@ async function renderProjects() {
           <h3>${project.title}</h3>
           <p>${project.description || firstParagraph(project.body) || ""}</p>
           <div class="tag-row">${[...(project.stack || []), ...(project.tags || [])]
-            .map((tag) => `<span class="tag">${tag}</span>`)
-            .join("")}</div>
+          .map((tag) => `<span class="tag">${tag}</span>`)
+          .join("")}</div>
           <div class="card-actions">
             ${project.demo ? `<a href="${project.demo}">Live demo</a>` : ""}
             ${project.code ? `<a href="${project.code}">Source code</a>` : ""}
@@ -249,8 +249,8 @@ function renderPostList() {
   const posts = filteredPosts();
   list.innerHTML = posts.length
     ? posts
-        .map(
-          (post) => `
+      .map(
+        (post) => `
             <article class="post-card">
               <p class="eyebrow">${post.type} - ${post.language || "General"}</p>
               <h3>${post.title}</h3>
@@ -259,8 +259,8 @@ function renderPostList() {
               <a class="button" href="post.html?post=${encodeURIComponent(post.slug)}">Read</a>
             </article>
           `
-        )
-        .join("")
+      )
+      .join("")
     : "<p>No posts match this filter yet.</p>";
 }
 

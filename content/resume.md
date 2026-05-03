@@ -38,3 +38,13 @@ Jan 2025 - Present
 ### B.Tech / B.Sc / M.Sc in Your Field - Your Universitys
 
 2022 - 2026
+
+
+## Certifications
+
+### CS50 Intro to AI
+
+Jan 2025 
+
+- Built a model evaluation pipeline that reduced manual analysis time by 60%.
+- Deployed internal dashboards for model monitoring and dataset quality checks.

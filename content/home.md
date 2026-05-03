@@ -1,16 +1,16 @@
 ---
-name: "Your Name"
-initials: "YN"
+name: "Mangaldeep Singh"
+initials: "MS"
 role: "Machine Learning Engineer"
-email: "you@example.com"
-github: "https://github.com/your-username"
-linkedin: "https://www.linkedin.com/in/your-username/"
-location: "Your City, Country"
+email: "mangaldeep95.ms@gmail.com"
+github: "https://github.com/mangaldeep-singh"
+linkedin: "https://www.linkedin.com/in/mangaldeep-singh/"
+location: "Kolkata, India"
 avatar: "assets/profile.svg"
-tags: ["portfolio", "machine-learning", "github-pages"]
+tags: ["portfolio", "machine-learning"]
 ---
 
-# Your Name
+# Mangaldeep Singh
 
 Final-year student / machine learning engineer / software builder.
 
