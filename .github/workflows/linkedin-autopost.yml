@@ -1,0 +1,46 @@
+name: Auto-Post to LinkedIn
+
+on:
+  push:
+    paths:
+      - 'content/posts/*.md'
+    branches:
+      - main
+
+jobs:
+  post-to-linkedin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # We need this to compare the current commit to the previous one
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests openai
+
+      - name: Find the New Markdown File and Run Script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
+        run: |
+          # Use git diff to find ONLY the newly added .md files in the posts folder
+          ADDED_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD | grep '^content/posts/.*\.md$' || true)
+          
+          if [ -z "$ADDED_FILES" ]; then
+            echo "No new blog posts found. Skipping LinkedIn post."
+            exit 0
+          fi
+
+          # Loop through new files (usually just one) and run the python script
+          for FILE in $ADDED_FILES; do
+            echo "Processing new post: $FILE"
+            python auto_poster.py "$FILE"
+          done
