@@ -13,6 +13,10 @@
       "file": "content/posts/data science.md"
     },
     {
+      "slug": "regression",
+      "file": "content/posts/regression.md"
+    },
+    {
       "slug": "getting-started-with-ml-demos",
       "file": "content/posts/getting-started-with-ml-demos.md"
     },
